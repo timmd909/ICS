@@ -1,4 +1,4 @@
-[![Build status](https://travis-ci.org/jasvrcek/ICS.svg?branch=master)](https://travis-ci.org/jasvrcek/ICS)
+# WARNING: THIS IS A FORK!
 
 ICS
 ===
@@ -24,7 +24,7 @@ $eventOne = new CalendarEvent();
 $eventOne->setStart(new \DateTime())
 	->setSummary('Family reunion')
 	->setUid('event-uid');
-	
+
 //add an Attendee
 $attendee = new Attendee(new Formatter());
 $attendee->setValue('moe@example.com')
@@ -61,9 +61,9 @@ echo $calendarExport->getStream();
 ## 2. Batch Event Provider
 
 The basic usage example will build the complete .ics string in memory and then echo it all
-at once. This will use a lot of memory for a large calendar. The following example shows 
+at once. This will use a lot of memory for a large calendar. The following example shows
 how to make CalendarExport::getStream() output each line of the ics file as it is generated, as well as how to set a provider
-for building the event list of a calendar in batches during export. 
+for building the event list of a calendar in batches during export.
 
 ```php
 use Jsvrcek\ICS\Model\Calendar;
@@ -82,20 +82,20 @@ $calendar->setEventsProvider(function ($startKey) use ($myDatabase) {
 
 	//pseudo-code to get a batch of events from database
 	$eventDataArray = $myDatabase->getEventsBatch($startKey);
-	
+
 	$events = array();
-	
+
 	foreach ($eventDataArray as $row) {
 		$event = new CalendarEvent();
 		$event->setStart($row['start_date'])
 			->setSummary($row['summary'])
 			->setUid($row['event_uid']);
-		
+
 		$events[] = $event;
 	}
-	
+
 	return $events;
-}); 
+});
 
 //setup exporter
 $calendarExport = new CalendarExport(new CalendarStream, new Formatter());
@@ -113,7 +113,7 @@ echo $calendarExport->getStream();
 * Jsvrcek\ICS\Model\CalendarTodo
 
 ## Reference
- 
+
  * http://tools.ietf.org/html/rfc5545
 
 ## Credits
