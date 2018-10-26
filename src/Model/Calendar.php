@@ -201,8 +201,12 @@ class Calendar
     /**
      * @param \DateTimeZone $timezone
      * @return \Jsvrcek\ICS\Model\Calendar
+     *
+     * @todo for PHP 7.1, we could also make this type-hint nullable
+     * For 7.0 compatibility, the default value must suffice.
+     *
      */
-    public function setTimezone(\DateTimeZone $timezone)
+    public function setTimezone(\DateTimeZone $timezone = null)
     {
         $this->timezone = $timezone;
         return $this;
