@@ -150,7 +150,7 @@ class CalendarExport
 
                 if ($event->isAllDay()) {
                     $dtStart = ';VALUE=DATE:' . $this->formatter->getFormattedDate($event->getStart());
-                    $dtEnd = ';VALUE=DATE:S' . $this->formatter->getFormattedDate($event->getEnd());
+                    $dtEnd = ';VALUE=DATE:' . $this->formatter->getFormattedDate($event->getEnd());
                 } else if ($this->dateTimeFormat === 'local') {
                     $dtStart = ':' . $this->formatter->getFormattedDateTime($event->getStart());
                     $dtEnd = ':' . $this->formatter->getFormattedDateTime($event->getEnd());
